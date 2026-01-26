@@ -31,5 +31,5 @@ export const signup = async ({ email, password }) => {
   const user = new User({ email, password });
   await user.save();
 
-  return tokenForUser(user);
+  return { token: tokenForUser(user), user };
 };

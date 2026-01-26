@@ -1,0 +1,19 @@
+
+> start
+> node src/server.js
+
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Mongoose connected to: mongodb://localhost:27017/social_media_app
+Listening on port 9090
+[0mGET /api/ [32m200[0m 1.887 ms - 29[0m
+[0mPOST /api/auth/signin [32m200[0m 82.417 ms - 234[0m
+[0mGET /api/posts [32m200[0m 10.773 ms - 313[0m
+[0mHEAD /api/images/6976a8504884cfff1f5a04e9 [32m200[0m 3.538 ms - 564414[0m
+[0mGET /api/posts [32m200[0m 10.281 ms - 313[0m
+[0mGET /api/images/6976a8504884cfff1f5a04e9 [32m200[0m 3.997 ms - 564414[0m
+[0mGET /api/posts [36m304[0m 6.463 ms - -[0m
+[0mGET /api/images/6976a8504884cfff1f5a04e9 [32m200[0m 2.808 ms - 564414[0m
+[0mGET /api/posts [36m304[0m 2.834 ms - -[0m
+[0mGET /api/images/6976a8504884cfff1f5a04e9 [32m200[0m 4.500 ms - 564414[0m
+[0mGET /api/posts [36m304[0m 6.334 ms - -[0m

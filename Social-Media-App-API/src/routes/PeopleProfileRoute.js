@@ -23,4 +23,32 @@ router.get('/me', requireAuth, async (req, res, next) => {
   }
 });
 
+router.get('/:userId', requireAuth, async (req, res, next) => {
+  try {
+    const result = await Controllers.getProfile(req.params.userId);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.patch('/visibility', requireAuth, async (req, res, next) => {
+  try {
+    const { visibility } = req.body;
+    const result = await Controllers.updateProfileVisibility(req.user._id, visibility);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/:userId', requireAuth, async (req, res, next) => {
+  try {
+    const result = await Controllers.getProfile(req.params.userId);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

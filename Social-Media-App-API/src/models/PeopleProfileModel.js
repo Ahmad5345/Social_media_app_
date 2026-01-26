@@ -19,6 +19,7 @@ const PeopleProfile = new Schema(
     favorite_1: { type: String, default: null },
     favorite_2: { type: String, default: null },
     favorite_3: { type: String, default: null },
+    is_public: { type: Boolean, default: true },
     tradition: { type: String, default: null },
     fun_fact: { type: String, default: null },
     picture_url: { type: String, default: null },

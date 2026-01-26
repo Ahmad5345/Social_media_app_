@@ -1,4 +1,4 @@
-import Post from '../models/Post.js';
+import Post from '../models/post.js';
 
 export async function createPost(req, res) {
   try {
@@ -20,6 +20,7 @@ export async function getFeed(req, res) {
     const posts = await Post.find()
       .populate('author', 'email')
       .populate('comments.user', 'email')
+      .populate('image', '_id')
       .sort({ createdAt: -1 });
 
     res.json(posts);
@@ -61,5 +62,21 @@ export async function addComment(req, res) {
     res.status(201).json(post.comments);
   } catch (error) {
     res.status(500).json({ error: `addComment: ${error.message}` });
+  }
+}
+
+export async function deletePost(req, res) {
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post) return res.status(404).json({ error: 'deletePost: Post not found' });
+    
+    if (post.author.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ error: 'deletePost: Not authorized to delete this post' });
+    }
+    
+    await Post.deleteOne({ _id: req.params.postId });
+    res.status(200).json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: `deletePost: ${error.message}` });
   }
 }

@@ -30,7 +30,7 @@ export default function Profile() {
   const loadUserPosts = async () => {
     try {
       setLoading(true);
-      const response = await api.get(`/posts/user/${user._id}`);
+      const response = await api.get(`/user-posts/user/${user._id}`);
       setUserPosts(response.data);
     } catch (error) {
       console.error('Error loading user posts:', error);
