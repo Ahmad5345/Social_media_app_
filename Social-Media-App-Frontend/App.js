@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useStore from './store/index.js';
 import AuthStack from './navigation/AuthStack.js';
 import AppStack from './navigation/AppStack.js';
@@ -13,8 +14,10 @@ export default function App() {
   }, [loadUser]);
 
   return (
-    <NavigationContainer>
-      {authenticated ? <AppStack /> : <AuthStack />}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        {authenticated ? <AppStack /> : <AuthStack />}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

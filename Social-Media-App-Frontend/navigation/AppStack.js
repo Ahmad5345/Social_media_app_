@@ -1,14 +1,39 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import MakeMyProfile from '../components/myProfile.js';
+import Feed from '../components/Feed.js';
+import Profile from '../components/Profile.js';
+import CreatePost from '../components/CreatePost.js';
+import ProfileDirectory from '../components/ProfileDirectory.js';
+import ProfileHeader from '../components/ProfileHeader.js';
 
 const Stack = createStackNavigator();
 
 export default function AppStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Feed">
       <Stack.Screen
-        name="Home"
-        component={MakeMyProfile}
+        name="Feed"
+        component={Feed}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProfileDirectory"
+        component={ProfileDirectory}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProfileEdit"
+        component={ProfileEdit}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

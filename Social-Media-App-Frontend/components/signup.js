@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // eslint-disable-next-line object-curly-newline
-import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Pressable, StyleSheet, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useStore from '../store/index.js';
 
@@ -16,7 +16,7 @@ export default function Signup() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Create Account</Text>
 
       <TextInput
@@ -47,7 +47,7 @@ export default function Signup() {
           Already have an account? Sign in
         </Text>
       </Pressable>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     paddingHorizontal: 24,
+    paddingTop: 20,
+    paddingBottom: 20,
     justifyContent: 'center',
   },
   title: {
