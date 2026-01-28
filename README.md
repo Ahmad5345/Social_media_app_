@@ -80,33 +80,32 @@ test on ios simulator on your laptop. VERY IMPORTANT!!!!
 
 ------------------------------------------------------------------------
 
-Screenshots
+## Screenshots
 
-Authentication
-Sign In
-![Sign In](./Screenshots/sign%20in.png)
+### Sign In
+![Sign In](./Screenshots/sign%20up.png)
 
-Feed
-Main Feed
-./Screenshots/feed.png
+### Feed
+![Sign In](./Screenshots/feed.png)
 
-Feed With My Posts
-./Screenshots/feed with my posts.png
+### Feed With My Posts
+![Sign In](./Screenshots/feed%20with%20my%20posts.png)
 
-Posting
-Create Post
-./Screenshots/create_post.png
 
-Photo Picker
-./Screenshots/photos.png
+### Create Post
+![Sign In](./Screenshots/create_post.png)
 
-Profile
-My Profile
-./Screenshots/my_profile.png
+### Photo Picker
+![Sign In](./Screenshots/photos.png)
 
-Social Discovery
-Search People
-./Screenshots/search_people.png
+
+### My Profile
+![Sign In](./Screenshots/my_profile.png)
+
+
+### Search People
+![Sign In](./Screenshots/search_people.png)
+
 
 ------------------------------------------------------------------------
 
