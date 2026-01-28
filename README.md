@@ -84,7 +84,7 @@ Screenshots
 
 Authentication
 Sign In
-./Screenshots/sign in.png
+![Sign In](./Screenshots/sign%20in.png)
 
 Feed
 Main Feed
