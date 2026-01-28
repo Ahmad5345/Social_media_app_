@@ -10,8 +10,8 @@ import {
   TextInput,
 } from 'react-native';
 
-import api from '../services/api';
-import useStore from '../store';
+import api from '../services/api.js';
+import useStore from '../index.js';
 
 export default function ProfileEdit({ route, navigation }) {
   const { profileId } = route.params || {};

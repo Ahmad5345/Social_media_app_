@@ -6,8 +6,7 @@ const router = Router();
 
 router.post('/new', requireAuth, async (req, res, next) => {
   try {
-    const profile = req.body;
-    const result = await Controllers.setProfile(req.user._id, profile);
+    const result = await Controllers.setProfile(req.user._id, req.body);
     res.json(result);
   } catch (error) {
     next(error);
@@ -23,19 +22,16 @@ router.get('/me', requireAuth, async (req, res, next) => {
   }
 });
 
-router.get('/:userId', requireAuth, async (req, res, next) => {
-  try {
-    const result = await Controllers.getProfile(req.params.userId);
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
-});
+/* ✅ SEARCH / GET ALL */
+router.get('/search', requireAuth, Controllers.searchProfiles);
 
 router.patch('/visibility', requireAuth, async (req, res, next) => {
   try {
     const { visibility } = req.body;
-    const result = await Controllers.updateProfileVisibility(req.user._id, visibility);
+    const result = await Controllers.updateProfileVisibility(
+      req.user._id,
+      visibility
+    );
     res.json(result);
   } catch (error) {
     next(error);

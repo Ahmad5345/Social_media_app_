@@ -15,7 +15,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 
-import api from '../services/api.js';
+import api from '../services/Social_Media_App-API.js';
 import useStore from '../store/index.js';
 import ProfileHeader from './ProfileHeader.js';
 
@@ -28,14 +28,12 @@ export default function CreatePost() {
   const user = useStore((state) => state.authSlice.user);
 
   const requestGalleryPermission = async () => {
-    const { status } =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     return status === 'granted';
   };
 
   const requestCameraPermission = async () => {
-    const { status } =
-      await ImagePicker.requestCameraPermissionsAsync();
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
     return status === 'granted';
   };
 
@@ -66,7 +64,7 @@ export default function CreatePost() {
     if (!hasPermission) {
       Alert.alert(
         'Permission Required',
-        'Camera access is required.'
+        'Camera access is required.',
       );
       return;
     }

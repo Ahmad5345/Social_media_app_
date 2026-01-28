@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import * as Controllers from '../controllers/UserController.js';
-import { requireSignin } from '../services/passport.js';
+import { requireSignin, requireAuth } from '../services/passport.js';
 
 const router = Router();
 

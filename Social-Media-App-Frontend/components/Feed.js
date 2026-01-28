@@ -12,7 +12,7 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import api from '../services/api.js';
+import api from '../services/Social_Media_App-API.js';
 import useStore from '../store/index.js';
 import ProfileHeader from './ProfileHeader.js';
 
@@ -118,9 +118,9 @@ export default function Feed() {
             {item.comments?.length || 0}
           </Text>
         </TouchableOpacity>
-        
+
         {item.author._id === user._id && (
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.deleteButton}
             onPress={() => handleDelete(item._id)}
           >
@@ -150,24 +150,28 @@ export default function Feed() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ProfileHeader showProfileButton />
-      <View style={styles.actionsHeader}>
-        <TouchableOpacity 
-          style={styles.createButton}
-          onPress={() => navigation.navigate('CreatePost')}
-        >
-          <Text style={styles.createButtonText}>+ Create Post</Text>
-        </TouchableOpacity>
-      </View>
-
       <FlatList
         data={posts}
-        renderItem={renderItem}
         keyExtractor={(item) => item._id}
+        renderItem={renderItem}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={loadFeed} />
         }
-        style={styles.feed}
+        ListHeaderComponent={
+          <>
+            <ProfileHeader showProfileButton showFeedButton={false} showDirectoryButton/>
+
+            <View style={styles.actionsHeader}>
+              <TouchableOpacity
+                style={styles.createButton}
+                onPress={() => navigation.navigate('CreatePost')}
+              >
+                <Text style={styles.createButtonText}>+ Create Post</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        }
+        contentContainerStyle={{ paddingBottom: 24 }}
       />
     </SafeAreaView>
   );

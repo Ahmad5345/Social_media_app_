@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const API_URL = 'http://localhost:9090/api';
 
@@ -7,22 +8,49 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-export const getProfile = async (id) => {
+// Attach JWT manually (since this file is standalone)
+api.interceptors.request.use(async (config) => {
+  const token = await AsyncStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export default api;
+
+
+/**
+ * Create profile for the authenticated user
+ * userId comes from JWT on backend
+ */
+export const setProfile = async (profileData) => {
   try {
-    const response = await api.get(`/profile/${id}`);
-    return response.data;
-  } catch (error) {
-    console.log(`Error frontend getProfile: ${error}`);
-    throw error;
+    const res = await api.post('/profile/new', profileData);
+    return res.data;
+  } catch (err) {
+    console.error(
+      'setProfile failed:',
+      err.response?.status,
+      err.response?.data,
+    );
+    throw err;
   }
 };
 
-export const setProfile = async (profileData) => {
+/**
+ * Fetch profile by userId
+ */
+export const getProfile = async (userId) => {
   try {
-    const response = await api.post('/profile/new', profileData);
-    return response.data;
-  } catch (error) {
-    console.log(`Error setProfile frontend: ${error}`);
-    throw error;
+    const res = await api.get(`/profile/${userId}`);
+    return res.data;
+  } catch (err) {
+    console.error(
+      'getProfile failed:',
+      err.response?.status,
+      err.response?.data,
+    );
+    throw err;
   }
 };

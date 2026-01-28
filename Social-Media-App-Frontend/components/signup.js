@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // eslint-disable-next-line object-curly-newline
-import { View, Text, TextInput, Pressable, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, TextInput, Pressable, StyleSheet, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useStore from '../store/index.js';
 
@@ -11,8 +11,11 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmit = () => {
-    signUpUser({ email, password }, navigation);
+  const onSubmit = async () => {
+    const success = await signUpUser({ email, password });
+    if (success) {
+      navigation.replace('CompleteProfile');
+    }
   };
 
   return (
