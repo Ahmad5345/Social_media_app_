@@ -80,6 +80,36 @@ test on ios simulator on your laptop. VERY IMPORTANT!!!!
 
 ------------------------------------------------------------------------
 
+Screenshots
+
+Authentication
+Sign In
+./Screenshots/sign in.png
+
+Feed
+Main Feed
+./Screenshots/feed.png
+
+Feed With My Posts
+./Screenshots/feed with my posts.png
+
+Posting
+Create Post
+./Screenshots/create_post.png
+
+Photo Picker
+./Screenshots/photos.png
+
+Profile
+My Profile
+./Screenshots/my_profile.png
+
+Social Discovery
+Search People
+./Screenshots/search_people.png
+
+------------------------------------------------------------------------
+
 ## Learning Journey
 
 ### Inspiration
